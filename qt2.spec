@@ -4,8 +4,8 @@ Summary(pl):	Biblioteka Qt2 do tworzenia GUI
 Summary(pt_BR):	Estrutura para rodar aplicações GUI Qt
 Name:		qt2
 %define		libqutil_version 1.0.0
-Version:	2.3.1
-Release:	5
+Version:	2.3.2
+Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.troll.no/qt/source/qt-x11-%{version}.tar.gz
@@ -31,7 +31,7 @@ Obsoletes:	qt < 3
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
 %define		_prefix		/usr/X11R6
-%define		_includedir	%{_prefix}/include/qt
+%define		_includedir	%{_prefix}/include/qt2
 %define		_mandir		%{_prefix}/man
 
 %description
@@ -82,15 +82,15 @@ en HTML.
 
 %description -l pl devel
 Pakiet tem zawiera pliki potrzebne do tworzenia i kompilacji aplikacji
-korzystaj±cych z biblioteki Qt, jak pliki nag³ówkowe, meta kompiler
-(moc), dokumentacjê. Zobacz http://www.troll.no/ aby dowiedzieæ siê
-wiêcej o Qt. Dokumentacjê do biblioteki znajdziesz tak¿e pod:
-/usr/share/doc/%{name}-devel-%{version}/index.html
+korzystaj±cych z biblioteki Qt, jak pliki nag³ówkowe, kompilator meta
+obiektów (moc), dokumentacjê. Zobacz http://www.troll.no/ aby
+dowiedzieæ siê wiêcej o Qt. Dokumentacjê do biblioteki znajdziesz
+tak¿e pod: /usr/share/doc/%{name}-devel-%{version}/index.html
 
 %description devel -l pt_BR
-Contém os arquivos necessários para desenvolver aplicações usando Qt: arquivos
-de inclusão, compilador de meta-objetos Qt, veja http://www.trolltech.com para
-mais informações sobre ele.
+Contém os arquivos necessários para desenvolver aplicações usando Qt:
+arquivos de inclusão, compilador de meta-objetos Qt, veja
+http://www.trolltech.com/ para mais informações sobre ele.
 
 %package examples
 Summary:	Example programs made with Qt version %{version}
@@ -106,7 +106,7 @@ Example programs made with Qt version %{version}.
 %description examples -l pl
 Przyk³ady do Qt.
 
-%description -l pt_BR examples
+%description examples -l pt_BR
 Programas exemplo para o Qt versão %{version}.
 
 %prep 
@@ -133,19 +133,18 @@ QTDIR=`/bin/pwd`; export QTDIR
 yes
 _EOF_
 
-CPPFLAGS="`pkg-config --cflags libpng12 || echo -n`"
 LD_LIBRARY_PATH=%{_libdir}
-SYSCONF_CFLAGS="-pipe -DNO_DEBUG %{rpmcflags} ${CPPFLAGS}"
-SYSCONF_CXXFLAGS="-pipe -DNO_DEBUG %{rpmcflags} ${CPPFLAGS}"
+SYSCONF_CFLAGS="-pipe -DNO_DEBUG %{rpmcflags}"
+SYSCONF_CXXFLAGS="-pipe -DNO_DEBUG %{rpmcflags}"
 export LD_LIBRARY_PATH SYSCONF_CFLAGS SYSCONF_CXXFLAGS
 
 %{__make} symlinks  src-moc src-mt sub-src sub-tools \
 %ifnarch alpha
-        SYSCONF_CFLAGS="%{rpmcflags} ${CPPFLAGS}" \
-	SYSCONF_CXXFLAGS="%{rpmcflags} ${CPPFLAGS}"
+        SYSCONF_CFLAGS="%{rpmcflags}" \
+	SYSCONF_CXXFLAGS="%{rpmcflags}"
 %else
-        SYSCONF_CFLAGS="%{!?debug:-0O}%{?debug:-O0 -g} ${CPPFLAGS}" \
-	SYSCONF_CXXFLAGS="%{!?debug:-O0}%{?debug:-O0 -g} ${CPPFLAGS}"
+        SYSCONF_CFLAGS="%{!?debug:-0O}%{?debug:-O0 -g}" \
+	SYSCONF_CXXFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}"
 %endif
 	
 %install
