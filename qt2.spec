@@ -145,7 +145,7 @@ export LD_LIBRARY_PATH SYSCONF_CFLAGS SYSCONF_CXXFLAGS
         SYSCONF_CFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}" \
 	SYSCONF_CXXFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}"
 %endif
-	
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir},%{_mandir}/man3} \
@@ -181,7 +181,7 @@ done
 
 cp -dpr examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 cp -dpr tutorial $RPM_BUILD_ROOT%{_datadir}/tutorial/%{name}
-				
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
