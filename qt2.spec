@@ -30,9 +30,7 @@ Obsoletes:	qt-extensions
 Obsoletes:	qt < 3
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
-%define		_prefix		/usr/X11R6
 %define		_includedir	%{_prefix}/include/qt2
-%define		_mandir		%{_prefix}/man
 
 %description
 Qt is a GUI software toolkit which simplifies the task of writing and
