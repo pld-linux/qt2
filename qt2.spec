@@ -149,12 +149,12 @@ export LD_LIBRARY_PATH SYSCONF_CFLAGS SYSCONF_CXXFLAGS
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir},%{_mandir}/man3} \
-	$RPM_BUILD_ROOT/usr/src/examples/%{name} \
+	$RPM_BUILD_ROOT%{_examplesdir}/%{name} \
 	$RPM_BUILD_ROOT%{_datadir}/tutorial/%{name} \
 
-install bin/* $RPM_BUILD_ROOT%{_bindir}/
-install tools/msg2qm/msg2qm $RPM_BUILD_ROOT%{_bindir}/
-install tools/mergetr/mergetr $RPM_BUILD_ROOT%{_bindir}/
+install bin/* $RPM_BUILD_ROOT%{_bindir}
+install tools/msg2qm/msg2qm $RPM_BUILD_ROOT%{_bindir}
+install tools/mergetr/mergetr $RPM_BUILD_ROOT%{_bindir}
 
 install lib/libqt.so.%{version} $RPM_BUILD_ROOT%{_libdir}
 ln -sf libqt.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libqt.so
@@ -168,7 +168,7 @@ ln -sf libqt-mt.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libqt-mt.so
 # empty symlinks
 rm -f include/qt_mac.h include/qt_windows.h include/jri.h \
 	include/jritypes.h include/npapi.h include/npupp.h
-install include/* $RPM_BUILD_ROOT/%{_includedir}
+install include/* $RPM_BUILD_ROOT%{_includedir}
 
 install doc/man/man3/* $RPM_BUILD_ROOT%{_mandir}/man3
 
@@ -179,7 +179,7 @@ for a in {tutorial,examples}/{Makefile,*/Makefile}; do
         mv -f $a. $a
 done
 
-cp -dpr examples $RPM_BUILD_ROOT/usr/src/examples/%{name}
+cp -dpr examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 cp -dpr tutorial $RPM_BUILD_ROOT%{_datadir}/tutorial/%{name}
 				
 %clean
@@ -207,5 +207,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files examples
 %defattr(644,root,root,755)
-/usr/src/examples/%{name}
+%{_examplesdir}/%{name}
 %{_datadir}/tutorial/%{name}
