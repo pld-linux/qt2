@@ -27,6 +27,7 @@ Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides:	qt = %{version}
 Obsoletes:	qt-extensions
+Obsoletes:	qt < 3
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
 %define		_prefix		/usr/X11R6
@@ -62,6 +63,7 @@ Requires:	%{name} = %{version}
 Requires:	XFree86-devel
 Requires:	libstdc++-devel
 Provides:	qt-devel = %{version}
+Obsoletes:	qt-devel < 3
 
 %description devel
 Contains the files necessary to develop applications using Qt: header
@@ -96,6 +98,7 @@ Summary(pl):	Przyk³ady do Qt
 Summary(pt_BR):	Programas exemplo desenvolvidos com o Qt
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
+Obsoletes:	qt-examples < 3
 
 %description examples
 Example programs made with Qt version %{version}.
