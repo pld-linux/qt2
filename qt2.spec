@@ -3,12 +3,9 @@ Summary(pl):	Biblioteka Qt2 do tworzenia GUI
 Name:		qt2
 %define		libqutil_version 1.0.0
 Version:	2.3.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(es):	X11/Bibliotecas
-Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.troll.no/qt/source/qt-x11-%{version}.tar.gz
 Patch0:		%{name}-tools.patch
 Patch1:		%{name}-huge_val.patch
@@ -22,9 +19,9 @@ BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
 Requires:	XFree86-libs >= 4.0.2
-Requires:	libmng
 Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Provides:	qt = %{version}
 Obsoletes:	qt-extensions
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -49,6 +46,7 @@ Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 Requires:	XFree86-devel
 Requires:	libstdc++-devel
+Provides:	qt-devel = %{version}
 
 %description devel
 Contains the files necessary to develop applications using Qt: header
@@ -66,17 +64,15 @@ wiêcej o Qt. Dokumentacjê do biblioteki znajdziesz tak¿e pod:
 
 %package examples
 Summary:	Qt tutorial/examples
-Summary(pl):	Qt przyk³ady
+Summary(pl):	Przyk³ady do Qt
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description examples
 Qt tutorial/examples.
 
-%description -l pl examples
-Qt przyk³ady.
+%description examples -l pl
+Przyk³ady do Qt.
 
 %prep 
 %setup -q -n qt-%{version}
@@ -154,11 +150,11 @@ cp -dpr tutorial $RPM_BUILD_ROOT%{_datadir}/tutorial/%{name}
 				
 gzip -9nf LICENSE.QPL
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
