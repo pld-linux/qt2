@@ -1,9 +1,11 @@
 Summary:	The Qt2 GUI application framework
+Summary(es):	Biblioteca para ejecutar aplicaciones GUI Qt
 Summary(pl):	Biblioteka Qt2 do tworzenia GUI
+Summary(pt_BR):	Estrutura para rodar aplicações GUI Qt
 Name:		qt2
 %define		libqutil_version 1.0.0
 Version:	2.3.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.troll.no/qt/source/qt-x11-%{version}.tar.gz
@@ -17,6 +19,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libmng-devel >= 1.0.0
 BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libstdc++-devel
+BuildRequires:	nas-devel
 BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
 Requires:	XFree86-libs >= 4.0.2
@@ -31,16 +34,27 @@ Obsoletes:	qt-extensions
 %define		_mandir		%{_prefix}/man
 
 %description
-Contains the shared library needed to run Qt applications, as well as
-the README files for Qt.
+Qt is a GUI software toolkit which simplifies the task of writing and
+maintaining GUI (Graphical User Interface) applications for the X
+Window System. Qt is written in C++ and is fully object-oriented.
+
+%description -l es
+Contiene las bibliotecas compartidas necesarias para ejecutar
+aplicaciones Qt, bien como los archivos README.
 
 %description -l pl
 Zawiera bibliotekê Qt wymagan± przez aplikacje, które z niej
 korzystaj±.
 
+%description -l pt_BR
+Contém as bibliotecas compartilhadas necessárias para rodar aplicações Qt, bem
+como os arquivos README.
+
 %package devel
-Summary:	Include files and documentation needed to compile
+Summary:	Development files and documentation for the Qt GUI toolkit
+Summary(es):	Archivos de inclusión y documentación necesaria para compilar aplicaciones Qt
 Summary(pl):	Pliki nag³ówkowe, przyk³ady i dokumentacja do biblioteki 
+Summary(pt_BR):	Arquivos de inclusão e documentação necessária para compilar aplicações Qt
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
@@ -56,6 +70,14 @@ example programs. See http://www.troll.no/ for more information about
 Qt, or file:/usr/share/doc/%{name}-devel-%{version}/index.html for Qt
 documentation in HTML.
 
+%description devel -l es
+Contiene los archivos necesarios para desarrollar aplicaciones
+usando Qt: archivos de inclusión, compilador de metaobjetos Qt,
+páginas de manual, documentación HTML y programas ejemplo. Mira
+http://www.troll.no para más información sobre el Qt, o el
+archivo file:/usr/lib/qt/html/index.html en la documentación
+en HTML.
+
 %description -l pl devel
 Pakiet tem zawiera pliki potrzebne do tworzenia i kompilacji aplikacji
 korzystaj±cych z biblioteki Qt, jak pliki nag³ówkowe, meta kompiler
@@ -63,17 +85,26 @@ korzystaj±cych z biblioteki Qt, jak pliki nag³ówkowe, meta kompiler
 wiêcej o Qt. Dokumentacjê do biblioteki znajdziesz tak¿e pod:
 /usr/share/doc/%{name}-devel-%{version}/index.html
 
+%description devel -l pt_BR
+Contém os arquivos necessários para desenvolver aplicações usando Qt: arquivos
+de inclusão, compilador de meta-objetos Qt, veja http://www.trolltech.com para
+mais informações sobre ele.
+
 %package examples
-Summary:	Qt tutorial/examples
+Summary:	Example programs made with Qt version %{version}
 Summary(pl):	Przyk³ady do Qt
+Summary(pt_BR):	Programas exemplo desenvolvidos com o Qt
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description examples
-Qt tutorial/examples.
+Example programs made with Qt version %{version}.
 
 %description examples -l pl
 Przyk³ady do Qt.
+
+%description -l pt_BR examples
+Programas exemplo para o Qt versão %{version}.
 
 %prep 
 %setup -q -n qt-%{version}
@@ -92,6 +123,7 @@ QTDIR=`/bin/pwd`; export QTDIR
 	-system-zlib \
 	-system-libmng \
 	-system-libpng \
+	-system-nas-sound \
 	-system-zlib \
 	-system-jpeg \
 	-thread <<_EOF_
@@ -149,8 +181,6 @@ done
 cp -dpr examples $RPM_BUILD_ROOT/usr/src/examples/%{name}
 cp -dpr tutorial $RPM_BUILD_ROOT%{_datadir}/tutorial/%{name}
 				
-gzip -9nf LICENSE.QPL
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -159,7 +189,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE.QPL.gz
+%doc LICENSE.QPL
 %attr(755,root,root) %{_libdir}/libqt.so.*.*
 %attr(755,root,root) %{_libdir}/libqutil.so.*.*
 %attr(755,root,root) %{_libdir}/libqt-mt.so.*.*
