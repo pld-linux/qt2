@@ -137,12 +137,12 @@ SYSCONF_CFLAGS="-pipe -DNO_DEBUG %{rpmcflags}"
 SYSCONF_CXXFLAGS="-pipe -DNO_DEBUG %{rpmcflags}"
 export LD_LIBRARY_PATH SYSCONF_CFLAGS SYSCONF_CXXFLAGS
 
-%{__make} symlinks  src-moc src-mt sub-src sub-tools \
+%{__make} symlinks src-moc src-mt sub-src sub-tools \
 %ifnarch alpha
-        SYSCONF_CFLAGS="%{rpmcflags}" \
+	SYSCONF_CFLAGS="%{rpmcflags}" \
 	SYSCONF_CXXFLAGS="%{rpmcflags}"
 %else
-        SYSCONF_CFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}" \
+	SYSCONF_CFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}" \
 	SYSCONF_CXXFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}"
 %endif
 
@@ -173,10 +173,10 @@ install include/* $RPM_BUILD_ROOT%{_includedir}
 install doc/man/man3/* $RPM_BUILD_ROOT%{_mandir}/man3
 
 for a in {tutorial,examples}/{Makefile,*/Makefile}; do
-        cat $a | sed 's-^SYSCONF_MOC.*-SYSCONF_MOC = %{_bindir}/moc -' | \
+	cat $a | sed 's-^SYSCONF_MOC.*-SYSCONF_MOC = %{_bindir}/moc -' | \
 	sed 's-^SYSCONF_CXXFLAGS_QT     = \$(QTDIR)/include-SYSCONF_CXXFLAGS_QT = %{_includedir}-' | \
 	sed 's-^SYSCONF_LFLAGS_QT       = \$(QTDIR)/lib-SYSCONF_LFLAGS_QT = %{_libdir}-' > $a.
-        mv -f $a. $a
+	mv -f $a. $a
 done
 
 cp -dpr examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
@@ -185,8 +185,8 @@ cp -dpr tutorial $RPM_BUILD_ROOT%{_datadir}/tutorial/%{name}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
