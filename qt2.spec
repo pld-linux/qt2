@@ -79,7 +79,7 @@ http://www.troll.no para más información sobre el Qt, o el
 archivo file:/usr/lib/qt/html/index.html en la documentación
 en HTML.
 
-%description -l pl devel
+%description devel -l pl
 Pakiet tem zawiera pliki potrzebne do tworzenia i kompilacji aplikacji
 korzystaj±cych z biblioteki Qt, jak pliki nag³ówkowe, kompilator meta
 obiektów (moc), dokumentacjê. Zobacz http://www.troll.no/ aby
