@@ -141,7 +141,7 @@ export LD_LIBRARY_PATH SYSCONF_CFLAGS SYSCONF_CXXFLAGS
         SYSCONF_CFLAGS="%{rpmcflags}" \
 	SYSCONF_CXXFLAGS="%{rpmcflags}"
 %else
-        SYSCONF_CFLAGS="%{!?debug:-0O}%{?debug:-O0 -g}" \
+        SYSCONF_CFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}" \
 	SYSCONF_CXXFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}"
 %endif
 	
