@@ -101,18 +101,19 @@ QTDIR=`/bin/pwd`; export QTDIR
 yes
 _EOF_
 
+CPPFLAGS="`pkg-config --cflags libpng12 || echo -n`"
 LD_LIBRARY_PATH=%{_libdir}
-SYSCONF_CFLAGS="-pipe -DNO_DEBUG %{rpmcflags}"
-SYSCONF_CXXFLAGS="-pipe -DNO_DEBUG %{rpmcflags}"
+SYSCONF_CFLAGS="-pipe -DNO_DEBUG %{rpmcflags} ${CPPFLAGS}"
+SYSCONF_CXXFLAGS="-pipe -DNO_DEBUG %{rpmcflags} ${CPPFLAGS}"
 export LD_LIBRARY_PATH SYSCONF_CFLAGS SYSCONF_CXXFLAGS
 
-%{__make} symlinks  src-moc src-mt sub-src sub-tools\
+%{__make} symlinks  src-moc src-mt sub-src sub-tools \
 %ifnarch alpha
-        SYSCONF_CFLAGS="%{rpmcflags}" \
-	SYSCONF_CXXFLAGS="%{rpmcflags}"
+        SYSCONF_CFLAGS="%{rpmcflags} ${CPPFLAGS}" \
+	SYSCONF_CXXFLAGS="%{rpmcflags} ${CPPFLAGS}"
 %else
-        SYSCONF_CFLAGS="%{!?debug:-0O}%{?debug:-O0 -g}" \
-	SYSCONF_CXXFLAGS="%{!?debug:-O0}%{?debug:-O0 -g}"
+        SYSCONF_CFLAGS="%{!?debug:-0O}%{?debug:-O0 -g} ${CPPFLAGS}" \
+	SYSCONF_CXXFLAGS="%{!?debug:-O0}%{?debug:-O0 -g} ${CPPFLAGS}"
 %endif
 	
 %install
