@@ -9,6 +9,7 @@ Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.troll.no/qt/source/qt-x11-%{version}.tar.gz
+# Source0-md5:	8b74c7bd9ff0c4752a009f2e5a6482e4
 Patch0:		%{name}-tools.patch
 Patch1:		%{name}-huge_val.patch
 Patch2:		%{name}-charset.patch
