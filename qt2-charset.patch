@@ -1,6 +1,6 @@
-diff -urN qt-2.3.0.org/src/tools/qtextcodec.cpp qt-2.3.0/src/tools/qtextcodec.cpp
---- qt-2.3.0.org/src/tools/qtextcodec.cpp	Wed Apr  4 15:46:46 2001
-+++ qt-2.3.0/src/tools/qtextcodec.cpp	Wed Apr  4 16:56:42 2001
+diff -urN qt-2.3.2/src/tools/qtextcodec.cpp qt-2.3.2.new/src/tools/qtextcodec.cpp
+--- qt-2.3.2/src/tools/qtextcodec.cpp	Mon Oct 29 15:21:15 2001
++++ qt-2.3.2.new/src/tools/qtextcodec.cpp	Tue Jul 23 13:38:06 2002
 @@ -58,6 +58,7 @@
  #include <stdlib.h>
  #include <ctype.h>
@@ -9,7 +9,7 @@ diff -urN qt-2.3.0.org/src/tools/qtextcodec.cpp qt-2.3.0/src/tools/qtextcodec.cp
  
  
  static QList<QTextCodec> * all = 0;
-@@ -558,6 +559,19 @@
+@@ -561,6 +562,19 @@
  #ifdef _OS_WIN32_
      localeMapper = new QWindowsLocalCodec;
  #else
@@ -28,4 +28,13 @@ diff -urN qt-2.3.0.org/src/tools/qtextcodec.cpp qt-2.3.0/src/tools/qtextcodec.cp
 +    
      // Very poorly defined and followed standards causes lots of code
      // to try to get all the cases...
+ 
+@@ -590,7 +604,7 @@
+     // 6. guess locale from lang
+ 
+     // 1. CODESET from ctype if it contains a .CODESET part (e.g. en_US.ISO8859-15)
+-    char * codeset = ctype ? strchr( ctype, '.' ) : 0;
++    codeset = ctype ? strchr( ctype, '.' ) : 0;
+     if ( codeset && *codeset == '.' )
+ 	localeMapper = codecForName( codeset + 1 );
  
