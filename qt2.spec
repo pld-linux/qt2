@@ -4,8 +4,8 @@ Summary(pl):	Biblioteka Qt2 do tworzenia GUI
 Summary(pt_BR):	Estrutura para rodar aplicações GUI Qt
 Name:		qt2
 %define		libqutil_version 1.0.0
-Version:	2.3.1
-Release:	3
+Version:	2.3.2
+Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.troll.no/qt/source/qt-x11-%{version}.tar.gz
@@ -31,7 +31,7 @@ Obsoletes:	qt < 3
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
 %define		_prefix		/usr/X11R6
-%define		_includedir	%{_prefix}/include/qt
+%define		_includedir	%{_prefix}/include/qt2
 %define		_mandir		%{_prefix}/man
 
 %description
