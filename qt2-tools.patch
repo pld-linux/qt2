@@ -1,0 +1,12 @@
+diff -durN qt-2.2.0.orig/tools/Makefile.in qt-2.2.0/tools/Makefile.in
+--- qt-2.2.0.orig/tools/Makefile.in	Sun Sep  3 19:41:23 2000
++++ qt-2.2.0/tools/Makefile.in	Sat Sep 16 20:26:56 2000
+@@ -5,7 +5,7 @@
+ #    Template: subdirs
+ #############################################################################
+ 
+-SUBDIRS =	designer
++SUBDIRS =	designer makeqpf mergetr msg2qm
+ 
+ all:
+ 	$(MAKE) $(SUBDIRS)

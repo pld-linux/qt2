@@ -1,0 +1,16 @@
+--- qt-2.1.0/src/widgets/qvalidator.cpp
++++ qt-2.1.0/src/widgets/qvalidator.cpp
+@@ -308,6 +308,13 @@
+   Constructs a validator object which accepts all doubles.
+ */
+ 
++#undef HUGE_VAL
++#  define HUGE_VAL \
++  (__extension__                                                              \
++   ((union { unsigned __l __attribute__((__mode__(__DI__))); double __d; })   \
++    { __l: 0x7ff0000000000000ULL }).__d)
++
++
+ QDoubleValidator::QDoubleValidator( QWidget * parent, const char *name )
+     : QValidator( parent, name )
+ {
