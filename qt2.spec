@@ -54,7 +54,7 @@ como os arquivos README.
 %package devel
 Summary:	Development files and documentation for the Qt GUI toolkit
 Summary(es):	Archivos de inclusión y documentación necesaria para compilar aplicaciones Qt
-Summary(pl):	Pliki nag³ówkowe, przyk³ady i dokumentacja do biblioteki 
+Summary(pl):	Pliki nag³ówkowe, przyk³ady i dokumentacja do biblioteki
 Summary(pt_BR):	Arquivos de inclusão e documentação necessária para compilar aplicações Qt
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
@@ -109,7 +109,7 @@ Przyk³ady do Qt.
 %description examples -l pt_BR
 Programas exemplo para o Qt versão %{version}.
 
-%prep 
+%prep
 %setup -q -n qt-%{version}
 %patch0 -p1
 %patch1 -p1
