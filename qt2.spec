@@ -17,6 +17,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libmng-devel >= 1.0.0
 BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libstdc++-devel
+BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
 Requires:	XFree86-libs >= 4.0.2
 Requires:	OpenGL
