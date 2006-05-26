@@ -15,7 +15,7 @@ Patch1:		%{name}-huge_val.patch
 Patch2:		%{name}-charset.patch
 BuildRequires:	OpenGL-devel
 BuildRequires:	XFree86-devel >= 4.0.2
-BuildRequires:	libungif-devel
+BuildRequires:	giflib-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmng-devel >= 1.0.0
 BuildRequires:	libpng-devel >= 1.0.8
@@ -25,10 +25,10 @@ BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
 Requires:	XFree86-libs >= 4.0.2
 Requires:	OpenGL
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides:	qt = %{version}
 Obsoletes:	qt-extensions
 Obsoletes:	qt < 3
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
 %define		_includedir	%{_prefix}/include/qt2
