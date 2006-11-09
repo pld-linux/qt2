@@ -1,9 +1,9 @@
+%define		libqutil_version 1.0.0
 Summary:	The Qt2 GUI application framework
 Summary(es):	Biblioteca para ejecutar aplicaciones GUI Qt
 Summary(pl):	Biblioteka Qt2 do tworzenia GUI
 Summary(pt_BR):	Estrutura para rodar aplicações GUI Qt
 Name:		qt2
-%define		libqutil_version 1.0.0
 Version:	2.3.2
 Release:	1
 License:	GPL
@@ -23,11 +23,11 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	nas-devel
 BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
-Requires:	XFree86-libs >= 4.0.2
 Requires:	OpenGL
+Requires:	XFree86-libs >= 4.0.2
 Provides:	qt = %{version}
-Obsoletes:	qt-extensions
 Obsoletes:	qt < 3
+Obsoletes:	qt-extensions
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -47,8 +47,8 @@ Zawiera bibliotekê Qt wymagan± przez aplikacje, które z niej
 korzystaj±.
 
 %description -l pt_BR
-Contém as bibliotecas compartilhadas necessárias para rodar aplicações Qt, bem
-como os arquivos README.
+Contém as bibliotecas compartilhadas necessárias para rodar aplicações
+Qt, bem como os arquivos README.
 
 %package devel
 Summary:	Development files and documentation for the Qt GUI toolkit
@@ -56,9 +56,7 @@ Summary(es):	Archivos de inclusión y documentación necesaria para compilar aplic
 Summary(pl):	Pliki nag³ówkowe, przyk³ady i dokumentacja do biblioteki
 Summary(pt_BR):	Arquivos de inclusão e documentação necessária para compilar aplicações Qt
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(pl):	X11/Programowanie/Biblioteki
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	XFree86-devel
 Requires:	libstdc++-devel
 Provides:	qt-devel = %{version}
@@ -72,12 +70,11 @@ Qt, or file:/usr/share/doc/%{name}-devel-%{version}/index.html for Qt
 documentation in HTML.
 
 %description devel -l es
-Contiene los archivos necesarios para desarrollar aplicaciones
-usando Qt: archivos de inclusión, compilador de metaobjetos Qt,
-páginas de manual, documentación HTML y programas ejemplo. Mira
-http://www.troll.no para más información sobre el Qt, o el
-archivo file:/usr/lib/qt/html/index.html en la documentación
-en HTML.
+Contiene los archivos necesarios para desarrollar aplicaciones usando
+Qt: archivos de inclusión, compilador de metaobjetos Qt, páginas de
+manual, documentación HTML y programas ejemplo. Mira
+http://www.troll.no para más información sobre el Qt, o el archivo
+file:/usr/lib/qt/html/index.html en la documentación en HTML.
 
 %description devel -l pl
 Pakiet tem zawiera pliki potrzebne do tworzenia i kompilacji aplikacji
@@ -96,7 +93,7 @@ Summary:	Example programs made with Qt version %{version}
 Summary(pl):	Przyk³ady do Qt
 Summary(pt_BR):	Programas exemplo desenvolvidos com o Qt
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	qt-examples < 3
 
 %description examples
