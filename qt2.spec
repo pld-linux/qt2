@@ -1,8 +1,8 @@
 %define		libqutil_version 1.0.0
 Summary:	The Qt2 GUI application framework
-Summary(es):	Biblioteca para ejecutar aplicaciones GUI Qt
-Summary(pl):	Biblioteka Qt2 do tworzenia GUI
-Summary(pt_BR):	Estrutura para rodar aplicações GUI Qt
+Summary(es.UTF-8):   Biblioteca para ejecutar aplicaciones GUI Qt
+Summary(pl.UTF-8):   Biblioteka Qt2 do tworzenia GUI
+Summary(pt_BR.UTF-8):   Estrutura para rodar aplicaÃ§Ãµes GUI Qt
 Name:		qt2
 Version:	2.3.2
 Release:	1
@@ -38,23 +38,23 @@ Qt is a GUI software toolkit which simplifies the task of writing and
 maintaining GUI (Graphical User Interface) applications for the X
 Window System. Qt is written in C++ and is fully object-oriented.
 
-%description -l es
+%description -l es.UTF-8
 Contiene las bibliotecas compartidas necesarias para ejecutar
 aplicaciones Qt, bien como los archivos README.
 
-%description -l pl
-Zawiera bibliotekê Qt wymagan± przez aplikacje, które z niej
-korzystaj±.
+%description -l pl.UTF-8
+Zawiera bibliotekÄ™ Qt wymaganÄ… przez aplikacje, ktÃ³re z niej
+korzystajÄ….
 
-%description -l pt_BR
-Contém as bibliotecas compartilhadas necessárias para rodar aplicações
+%description -l pt_BR.UTF-8
+ContÃ©m as bibliotecas compartilhadas necessÃ¡rias para rodar aplicaÃ§Ãµes
 Qt, bem como os arquivos README.
 
 %package devel
 Summary:	Development files and documentation for the Qt GUI toolkit
-Summary(es):	Archivos de inclusión y documentación necesaria para compilar aplicaciones Qt
-Summary(pl):	Pliki nag³ówkowe, przyk³ady i dokumentacja do biblioteki
-Summary(pt_BR):	Arquivos de inclusão e documentação necessária para compilar aplicações Qt
+Summary(es.UTF-8):   Archivos de inclusiÃ³n y documentaciÃ³n necesaria para compilar aplicaciones Qt
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe, przykÅ‚ady i dokumentacja do biblioteki
+Summary(pt_BR.UTF-8):   Arquivos de inclusÃ£o e documentaÃ§Ã£o necessÃ¡ria para compilar aplicaÃ§Ãµes Qt
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	XFree86-devel
@@ -69,29 +69,29 @@ example programs. See http://www.troll.no/ for more information about
 Qt, or file:/usr/share/doc/%{name}-devel-%{version}/index.html for Qt
 documentation in HTML.
 
-%description devel -l es
+%description devel -l es.UTF-8
 Contiene los archivos necesarios para desarrollar aplicaciones usando
-Qt: archivos de inclusión, compilador de metaobjetos Qt, páginas de
-manual, documentación HTML y programas ejemplo. Mira
-http://www.troll.no para más información sobre el Qt, o el archivo
-file:/usr/lib/qt/html/index.html en la documentación en HTML.
+Qt: archivos de inclusiÃ³n, compilador de metaobjetos Qt, pÃ¡ginas de
+manual, documentaciÃ³n HTML y programas ejemplo. Mira
+http://www.troll.no para mÃ¡s informaciÃ³n sobre el Qt, o el archivo
+file:/usr/lib/qt/html/index.html en la documentaciÃ³n en HTML.
 
-%description devel -l pl
+%description devel -l pl.UTF-8
 Pakiet tem zawiera pliki potrzebne do tworzenia i kompilacji aplikacji
-korzystaj±cych z biblioteki Qt, jak pliki nag³ówkowe, kompilator meta
-obiektów (moc), dokumentacjê. Zobacz http://www.troll.no/ aby
-dowiedzieæ siê wiêcej o Qt. Dokumentacjê do biblioteki znajdziesz
-tak¿e pod: /usr/share/doc/%{name}-devel-%{version}/index.html
+korzystajÄ…cych z biblioteki Qt, jak pliki nagÅ‚Ã³wkowe, kompilator meta
+obiektÃ³w (moc), dokumentacjÄ™. Zobacz http://www.troll.no/ aby
+dowiedzieÄ‡ siÄ™ wiÄ™cej o Qt. DokumentacjÄ™ do biblioteki znajdziesz
+takÅ¼e pod: /usr/share/doc/%{name}-devel-%{version}/index.html
 
-%description devel -l pt_BR
-Contém os arquivos necessários para desenvolver aplicações usando Qt:
-arquivos de inclusão, compilador de meta-objetos Qt, veja
-http://www.trolltech.com/ para mais informações sobre ele.
+%description devel -l pt_BR.UTF-8
+ContÃ©m os arquivos necessÃ¡rios para desenvolver aplicaÃ§Ãµes usando Qt:
+arquivos de inclusÃ£o, compilador de meta-objetos Qt, veja
+http://www.trolltech.com/ para mais informaÃ§Ãµes sobre ele.
 
 %package examples
 Summary:	Example programs made with Qt version %{version}
-Summary(pl):	Przyk³ady do Qt
-Summary(pt_BR):	Programas exemplo desenvolvidos com o Qt
+Summary(pl.UTF-8):   PrzykÅ‚ady do Qt
+Summary(pt_BR.UTF-8):   Programas exemplo desenvolvidos com o Qt
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	qt-examples < 3
@@ -99,11 +99,11 @@ Obsoletes:	qt-examples < 3
 %description examples
 Example programs made with Qt version %{version}.
 
-%description examples -l pl
-Przyk³ady do Qt.
+%description examples -l pl.UTF-8
+PrzykÅ‚ady do Qt.
 
-%description examples -l pt_BR
-Programas exemplo para o Qt versão %{version}.
+%description examples -l pt_BR.UTF-8
+Programas exemplo para o Qt versÃ£o %{version}.
 
 %prep
 %setup -q -n qt-%{version}
