@@ -1,8 +1,8 @@
 %define		libqutil_version 1.0.0
 Summary:	The Qt2 GUI application framework
-Summary(es.UTF-8):   Biblioteca para ejecutar aplicaciones GUI Qt
-Summary(pl.UTF-8):   Biblioteka Qt2 do tworzenia GUI
-Summary(pt_BR.UTF-8):   Estrutura para rodar aplicações GUI Qt
+Summary(es.UTF-8):	Biblioteca para ejecutar aplicaciones GUI Qt
+Summary(pl.UTF-8):	Biblioteka Qt2 do tworzenia GUI
+Summary(pt_BR.UTF-8):	Estrutura para rodar aplicações GUI Qt
 Name:		qt2
 Version:	2.3.2
 Release:	1
@@ -52,9 +52,9 @@ Qt, bem como os arquivos README.
 
 %package devel
 Summary:	Development files and documentation for the Qt GUI toolkit
-Summary(es.UTF-8):   Archivos de inclusión y documentación necesaria para compilar aplicaciones Qt
-Summary(pl.UTF-8):   Pliki nagłówkowe, przykłady i dokumentacja do biblioteki
-Summary(pt_BR.UTF-8):   Arquivos de inclusão e documentação necessária para compilar aplicações Qt
+Summary(es.UTF-8):	Archivos de inclusión y documentación necesaria para compilar aplicaciones Qt
+Summary(pl.UTF-8):	Pliki nagłówkowe, przykłady i dokumentacja do biblioteki
+Summary(pt_BR.UTF-8):	Arquivos de inclusão e documentação necessária para compilar aplicações Qt
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	XFree86-devel
@@ -90,8 +90,8 @@ http://www.trolltech.com/ para mais informações sobre ele.
 
 %package examples
 Summary:	Example programs made with Qt version %{version}
-Summary(pl.UTF-8):   Przykłady do Qt
-Summary(pt_BR.UTF-8):   Programas exemplo desenvolvidos com o Qt
+Summary(pl.UTF-8):	Przykłady do Qt
+Summary(pt_BR.UTF-8):	Programas exemplo desenvolvidos com o Qt
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	qt-examples < 3
